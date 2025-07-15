@@ -170,3 +170,11 @@ This project uses Docker Compose to simplify environment setup. Ensure you have 
 | GET    | `/fichas/{id}`              | Retrieves a patient record by ID.                                      |
 
 </details>
+
+## 🖼️ Screenshots
+
+### Patient Record
+![Patient Record](screenshots/ficha.png)
+
+### Record Management
+![Record Management](screenshots/gerenciamentoFicha.png)
