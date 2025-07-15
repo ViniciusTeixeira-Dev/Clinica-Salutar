@@ -51,12 +51,7 @@ Este projeto utiliza Docker Compose para simplificar a configuração do ambient
     cd Clinica-Salutar
     ```
 
-2.  **Verifique a Configuração (Opcional, mas recomendado):**
-    * **`docker-compose.yml`**: Verifique as variáveis de ambiente para MySQL (`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`). As credenciais `root` / `mysql` e `db_salutar` são as que usamos na depuração.
-    * **`database/db_salutar.sql`**: Certifique-se de que o script SQL está limpo (sem cabeçalhos do `mysqldump`) e contém o `INSERT` para o usuário `admin` (`login='admin'`, senha hasheada para '1234').
-    * **`frontend-angular/src/index.html`**: A tag `<base href="/">` deve estar presente e correta.
-
-3.  **Inicie os Contêineres (Build e Execução):**
+2.  **Inicie os Contêineres (Build e Execução):**
     Na pasta raiz do projeto (`Clinica-Salutar`), execute os seguintes comandos:
     * **Pare e remova qualquer instância anterior e volumes de dados (isso garantirá um banco de dados limpo e o script SQL será executado):**
         ```bash
@@ -71,33 +66,25 @@ Este projeto utiliza Docker Compose para simplificar a configuração do ambient
         docker compose up -d
         ```
 
-4.  **Acesse a Aplicação:**
+3.  **Acesse a Aplicação:**
     * Abra seu navegador e acesse: `http://localhost:4200`
     * Faça login com:
         * **Usuário:** `admin`
         * **Senha:** `1234`
 
-5.  **Verifique os Uploads:**
+4.  **Verifique os Uploads:**
     * Após o login, teste o upload de imagens/mídias. Elas devem ser salvas e exibidas corretamente.
 
 ## 🛣️ Estrutura de Rotas (Exemplos da API Backend)
 
-| Método | Endpoint                    | Descrição                                                    |
-|--------|-----------------------------|--------------------------------------------------------------|
-| POST   | `/login`                    | Autentica o usuário e retorna um token JWT.                  |
-| POST   | `/upload`                   | Envia um arquivo (MultipartFile) para o servidor.            |
-| POST   | `/fichas/nova`              | Cadastra uma nova ficha de paciente.                         |
-| PUT    | `/fichas/{id}`              | Atualiza uma ficha de paciente existente.                    |
-| GET    | `/fichas/{id}`              | Busca uma ficha de paciente pelo ID.                         |
-| GET    | `/fichas` ou `/fichas?nome=...` | Lista todas as fichas ou filtra por nome.                    |
+| Método | Endpoint                    | Descrição                                                                      |
+|--------|-----------------------------|--------------------------------------------------------------------------------|
+| POST   | `/`                         | Autentica o usuário e retorna um token JWT.                                    |
+| GET    | `/main`                     | Rota principal para visualização e navegação das fichas de pacientes.          |
+| POST   | `/fichas/NOVA`              | Cadastra uma nova ficha de paciente.                                           |
+| PUT    | `/fichas/{id}`              | Atualiza uma ficha de paciente existente pelo ID.                              |
+| GET    | `/fichas/{id}`              | Busca uma ficha de paciente pelo ID.                                           |
 
-## 🗄️ Configuração do Banco de Dados
-
-* **Tipo:** MySQL
-* **Nome do Banco de Dados:** `db_salutar`
-* **Usuário:** `root`
-* **Senha:** `mysql`
-* O script `db_salutar.sql` inicializa o esquema do banco de dados e insere um usuário `admin` padrão.
 
 </details>
 
@@ -148,12 +135,7 @@ This project uses Docker Compose to simplify environment setup. Ensure you have 
     cd Clinica-Salutar
     ```
 
-2.  **Verify Configuration (Optional, but recommended):**
-    * **`docker-compose.yml`**: Check MySQL environment variables (`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`). The credentials `root` / `mysql` and `db_salutar` are what we debugged with.
-    * **`database/db_salutar.sql`**: Ensure the SQL script is clean (no `mysqldump` headers) and contains the `INSERT` statement for the `admin` user (`login='admin'`, hashed password for '1234').
-    * **`frontend-angular/src/index.html`**: The `<base href="/">` tag should be present and correct.
-
-3.  **Start the Containers (Build and Run):**
+2.  **Start the Containers (Build and Run):**
     In the project root directory (`Clinica-Salutar`), execute the following commands:
     * **Stop and remove any previous instances and data volumes (this ensures a clean database and the SQL script will run):**
         ```bash
@@ -168,32 +150,24 @@ This project uses Docker Compose to simplify environment setup. Ensure you have 
         docker compose up -d
         ```
 
-4.  **Access the Application:**
+3.  **Access the Application:**
     * Open your browser and navigate to: `http://localhost:4200`
     * Log in with:
         * **Username:** `admin`
         * **Password:** `1234`
 
-5.  **Test Uploads:**
+4.  **Test Uploads:**
     * After logging in, test uploading images/media. They should be saved and displayed correctly.
 
 ## 🛣️ API Routes (Backend Examples)
 
-| Method | Endpoint                    | Description                                                    |
-|--------|-----------------------------|----------------------------------------------------------------|
-| POST   | `/login`                    | Authenticates the user and returns a JWT token.                |
-| POST   | `/upload`                   | Uploads a file (MultipartFile) to the server.                  |
-| POST   | `/fichas/nova`              | Registers a new patient record.                                |
-| PUT    | `/fichas/{id}`              | Updates an existing patient record.                            |
-| GET    | `/fichas/{id}`              | Retrieves a patient record by ID.                              |
-| GET    | `/fichas` or `/fichas?nome=...` | Lists all patient records or filters by name.                  |
+| Method | Endpoint                    | Description                                                            |
+|--------|-----------------------------|------------------------------------------------------------------------|
+| POST   | `/`                    | Authenticates the user and returns a JWT token.                        |
+| GET    | `/main`                     | Main route for viewing and navigating patient records.                 |
+| POST   | `/fichas/NOVA`              | Registers a new patient record.                                        |
+| PUT    | `/fichas/{id}`              | Updates an existing patient record by ID.                              |
+| GET    | `/fichas/{id}`              | Retrieves a patient record by ID.                                      |
 
-## 🗄️ Database Configuration
-
-* **Type:** MySQL
-* **Database Name:** `db_salutar`
-* **Username:** `root`
-* **Password:** `mysql`
-* The `db_salutar.sql` script initializes the database schema and inserts a default `admin` user.
 
 </details>
