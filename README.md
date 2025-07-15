@@ -72,8 +72,6 @@ Este projeto utiliza Docker Compose para simplificar a configuração do ambient
         * **Usuário:** `admin`
         * **Senha:** `1234`
 
-4.  **Verifique os Uploads:**
-    * Após o login, teste o upload de imagens/mídias. Elas devem ser salvas e exibidas corretamente.
 
 ## 🛣️ Estrutura de Rotas (Exemplos da API Backend)
 
@@ -156,8 +154,6 @@ This project uses Docker Compose to simplify environment setup. Ensure you have 
         * **Username:** `admin`
         * **Password:** `1234`
 
-4.  **Test Uploads:**
-    * After logging in, test uploading images/media. They should be saved and displayed correctly.
 
 ## 🛣️ API Routes (Backend Examples)
 
