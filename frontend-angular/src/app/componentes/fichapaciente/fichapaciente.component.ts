@@ -170,7 +170,7 @@ export class FichapacienteComponent implements OnInit {
 
   public chamarUpload(mode : string):void{
     this.mode = mode;
-    if(mode == 'profiel'){
+    if(mode == 'profile'){
       document.getElementById("btnModalUpload")?.click();
     }
     else{

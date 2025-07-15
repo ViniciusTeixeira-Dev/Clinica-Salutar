@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql         
+      MYSQL_DATABASE: db_salutar          
+
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/db_salutar.sql:/docker-entrypoint-initdb.d/db_salutar.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pmysql"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend-java
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      UPLOAD_DIR: /app/uploads 
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/db_salutar?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: mysql
+      SPRING_PROFILES_ACTIVE: prod
+    volumes:
+      - uploads_data:/app/uploads
+    command: ["sh", "-c", "mkdir -p /app/uploads && chmod -R 777 /app/uploads && java -jar app.jar"]
+    depends_on:
+      database:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend-angular
+    restart: always
+    ports:
+      - "4200:80"
+    environment:
+      API_BASE_URL: http://localhost:8080
+    volumes:
+      - uploads_data:/var/www/clinicasalutar/browser/assets/midia
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
+  uploads_data:
