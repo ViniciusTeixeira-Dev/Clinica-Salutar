@@ -36,6 +36,7 @@ Este projeto é uma aplicação full-stack composta por um backend, um frontend 
 * **Gestão de Fichas de Pacientes:**
     * Cadastro completo de informações básicas (nome, data de nascimento, endereço, etc.).
     * Registro de histórico clínico detalhado (diagnóstico clínico, queixa principal, medicações, exames, etc.).
+* **Preenchimento Automático de Endereço:** Conexão com a API do ViaCEP para preencher automaticamente informações de endereço (logradouro, cidade, estado) a partir do CEP.
 * **Upload e Gestão de Mídias:**
     * Upload de fotos e vídeos associados à ficha do paciente.
     * Visualização de mídias anexadas.
@@ -118,6 +119,7 @@ This project is a full-stack application composed of a backend, a frontend, and 
 * **Patient Record Management:**
     * Comprehensive registration of basic information (name, date of birth, address, etc.).
     * Detailed clinical history recording (clinical diagnosis, main complaint, medications, exams, etc.).
+* **Automatic Address Filling:** Connection with the ViaCEP API to automatically fill in address information (street, city, state) based on the CEP (ZIP code).
 * **Media Upload and Management:**
     * Upload photos and videos associated with the patient's record.
     * Viewing of attached media.
@@ -154,16 +156,17 @@ This project uses Docker Compose to simplify environment setup. Ensure you have 
         * **Username:** `admin`
         * **Password:** `1234`
 
+4.  **Test Uploads:**
+    * After logging in, test uploading images/media. They should be saved and displayed correctly.
 
 ## 🛣️ API Routes (Backend Examples)
 
 | Method | Endpoint                    | Description                                                            |
 |--------|-----------------------------|------------------------------------------------------------------------|
-| POST   | `/`                    | Authenticates the user and returns a JWT token.                        |
+| POST   | `/login`                    | Authenticates the user and returns a JWT token.                        |
 | GET    | `/main`                     | Main route for viewing and navigating patient records.                 |
 | POST   | `/fichas/NOVA`              | Registers a new patient record.                                        |
 | PUT    | `/fichas/{id}`              | Updates an existing patient record by ID.                              |
 | GET    | `/fichas/{id}`              | Retrieves a patient record by ID.                                      |
-
 
 </details>
