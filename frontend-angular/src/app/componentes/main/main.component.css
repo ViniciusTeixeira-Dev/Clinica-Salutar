@@ -1,0 +1,30 @@
+#adicionar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+    background-color: #0d6efd;;
+    color: white;
+    border: 1px solid rgb(20, 20, 245);
+
+
+
+}
+
+#logout{
+    position: fixed;
+    left: 1em;
+    top: 1em;
+}
+
+.paciente{
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+
+.paciente:hover{
+    text-decoration: underline;
+}

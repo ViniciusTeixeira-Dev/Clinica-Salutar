@@ -1,0 +1,58 @@
+textarea{
+    height: 400px;
+    box-shadow: 4px 6px 12px 1px rgba(163, 163, 163, 1);
+}
+
+.nav-tabs {
+  width: fit-content; /* Or a specific width if known */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.nav-link:hover{
+    font-weight: bold;
+}
+
+
+#foto{
+    border-radius: 50%;
+}
+
+#cabecalho{
+    position: fixed;
+    top: 0;
+    background-color: white;
+}
+
+#salvar{
+    position: fixed;
+    z-index: 2;
+    bottom: 2em;
+    right: 2em;
+    border-radius: 30%;
+    width: 70px;
+    height: 70px;
+    
+}
+
+#voltar{
+    position: fixed;
+    z-index: 2;
+    bottom: 2em;
+    left: 2em;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+section{
+    padding-top:8em ;
+    height: 50vh;
+}
+
+.midia{
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
