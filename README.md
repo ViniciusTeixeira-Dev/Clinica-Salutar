@@ -171,10 +171,10 @@ This project uses Docker Compose to simplify environment setup. Ensure you have 
 
 </details>
 
-## 🖼️ Screenshots
+## 🖼️ Capturas de Tela / Screenshots
 
-### Patient Record
+### /main
 ![Patient Record](screenshots/ficha.png)
 
-### Record Management
+### /fichas
 ![Record Management](screenshots/gerenciamentoFicha.png)
